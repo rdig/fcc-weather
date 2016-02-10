@@ -10,10 +10,18 @@
 	<link href="styles/boilerplate.css" rel="stylesheet" />
 </head>
 <body>
-	<footer>
-		<p>&copy; 2016 <a href="http://glogovetan.com" class="brand" target="_blank">Raul Glogovetan</a>. Project built for a <a href="http://www.freecodecamp.com/challenges/show-the-local-weather" target="_blank">FreeCodeCamp</a> challenge.</p>
-		<a class="github" href="https://github.com/rdig/fcc-weather" title="Raul Glogovetan's Public Repository" target="_blank"><span class="icon"></span></a>
-	</footer>
+	<div class="weather-image mist">
+		<div class="wrapper">
+			<p class="no-data-warning">Cannot access OpenWeatherMap API, reverting to static value</p>
+			<div class="location">Tirgu Mures</div>
+			<div class="temperature">0<span class="deg">&deg;</span><a id="change-mesurements">C</a></div>
+			<div class="icon"></div>
+		</div>
+		<footer>
+			<p>&copy; 2016 <a href="http://glogovetan.com" class="brand" target="_blank">Raul Glogovetan</a>. Project built for a <a href="http://www.freecodecamp.com/challenges/show-the-local-weather" target="_blank">FreeCodeCamp</a> challenge.</p>
+			<a class="github" href="https://github.com/rdig/fcc-weather" title="Raul Glogovetan's Public Repository" target="_blank"><span class="icon"></span></a>
+		</footer>
+	</div>
 	<script src="scripts/boilerplate.js"></script>
 </body>
 </html>

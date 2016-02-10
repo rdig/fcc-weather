@@ -2,17 +2,58 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
-$default-text-color: #111111;
+$default-text-color: #f9f9f9;
+$light-text-color: #f9f9f9;
+$dark-text-color: #101010;
+$default-background-color: #222222;
 $footer-link-color: #27ae60;
+$weather-no-image-background: transparent;
+$mesurements-background-color: #3498DB;
+$no-data-background-color: #c0392B;
 
-$sprite-map: '';
-$sprite-map-alt: '';
+$sprite-map: '../media/sprites/rg-fcc-weather-sprite_v1.svg';
+$sprite-map-alt: '../sprites/icons/rg-fcc-weather-sprite_v1.png';
 
 $github-icon: '../media/icons/rg-fcc-icon-github_v1.svg';
 $github-icon-alt: '../media/icons/rg-fcc-icon-github_v1.png';
 
+$clear-day-background: '../media/images/8727836907_f6e95aebac_k.jpg';
+$clear-night-background: '../media/images/15954036534_7cbabbf671_k.jpg';
+$few-clouds-day-background: '../media/images/8690313402_5f76f736b3_k.jpg';
+$few-clouds-night-background: '../media/images/22276571564_03295ec4ee_k.jpg';
+$scattered-clouds-background: '../media/images/17150020868_e3c93df974_k.jpg';
+$broken-clouds-background: '../media/images/16615878842_86e75cf1c9_k.jpg';
+$rain-background: '../media/images/15613780127_03c013e5d1_k.jpg';
+$light-rain-background: '../media/images/17597234074_4a1d985564_k.jpg';
+$thunderstorm-background: '../media/images/21166952744_a206430fae_k.jpg';
+$snow-background: '../media/images/8419603259_1a79e216bc_k.jpg';
+$mist-background: '../media/images/4200125083_7b3601e2f4_o.jpg';
+
 $github-icon-light: 0px 0px;
 $github-icon-dark: -57px 0px;
+
+$clear-day-dark: 0px 0px;
+$clear-day-light: -90px 0px;
+$clear-night-dark: -180px 0px;
+$clear-night-light: -270px 0px;
+$few-clouds-day-dark: -360px 0px;
+$few-clouds-day-light: -450px 0px;
+$few-clouds-night-dark: -540px 0px;
+$few-clouds-night-light: -630px 0px;
+$scattered-clouds-dark: -720px 0px;
+$scattered-clouds-light: -810px 0px;
+$broken-clouds-dark: -900px 0px;
+$broken-clouds-light: -990px 0px;
+$rain-dark: -1080px 0px;
+$rain-light: -1170px 0px;
+$light-rain-dark: -1260px 0px;
+$light-rain-light: -1350px 0px;
+$thuderstorm-dark: -1440px 0px;
+$thuderstorm-light: -1530px 0px;
+$snow-dark: -1620px 0px;
+$snow-light:  -1710px 0px;
+$mist-dark: -1800px 0px;
+$mist-light: -1890px 0px;
 
 @mixin debug {
 	border:1px dashed tomato;
@@ -63,6 +104,7 @@ $github-icon-dark: -57px 0px;
 	user-select: text;
 }
 @mixin fcc-footer {
+	color: $light-text-color !important;
 	display: none;
 	top: auto;
 	bottom: 0;
@@ -100,23 +142,36 @@ $github-icon-dark: -57px 0px;
 			width: 26px;
 			background: url($github-icon-alt);
 			background-image: url($github-icon), none;
-			background-position: $github-icon-dark;
-
+			background-position: $github-icon-light;
+			background-repeat: no-repeat;
 		}
 		&:focus {
 			outline: 0;
 		}
 	}
 }
+@mixin border_radius_default {
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	border-radius: 4px;
+}
 
 * {
 	box-sizing: border-box;
-	font-family: 'Open Sans', sans-serif;
 }
 html {
-
+	background-color: $default-background-color;
+	height: 100%;
 }
-body { margin: 0 0 0 0;	padding: 0 0 0 0; color: $default-text-color; }
+body {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	color: $default-text-color;
+	height: 100%;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+}
 footer { @include fcc-footer; }
 .boiler {
 	@include absolute-center;
@@ -125,4 +180,126 @@ footer { @include fcc-footer; }
 		text-align: center;
 		font-style: italic;
 	}
+}
+
+.weather-image {
+	height: 100%;
+	width: 100%;
+	background-color: $weather-no-image-background;
+	background-position: center center;
+	background-size: cover;
+	&.clear-day {
+		color: $dark-text-color;
+		background-image: url($clear-day-background);
+		.icon { background-position: $clear-day-dark; }
+	}
+	&.clear-night {
+		background-image: url($clear-night-background);
+		.icon { background-position: $clear-night-light; }
+	}
+	&.few-clouds-day {
+		color: $dark-text-color;
+		background-image: url($few-clouds-day-background);
+		.icon { background-position: $few-clouds-day-dark; }
+	}
+	&.few-clouds-night {
+		color: $dark-text-color;
+		background-image: url($few-clouds-night-background);
+		.icon { background-position: $few-clouds-night-dark; }
+	}
+	&.scattered-clouds {
+		color: $dark-text-color;
+		background-image: url($scattered-clouds-background);
+		.icon { background-position: $scattered-clouds-dark; }
+	}
+	&.broken-clouds {
+		color: $dark-text-color;
+		background-image: url($broken-clouds-background);
+		.icon { background-position: $broken-clouds-dark; }
+	}
+	&.rain {
+		color: $dark-text-color;
+		background-image: url($rain-background);
+		.icon { background-position: $rain-dark; }
+	}
+	&.light-rain {
+		color: $dark-text-color;
+		background-image: url($light-rain-background);
+		.icon { background-position: $light-rain-dark; }
+	}
+	&.thunderstorm {
+		color: $dark-text-color;
+		background-image: url($thunderstorm-background);
+		.icon { background-position: $thuderstorm-dark; }
+	}
+	&.snow {
+		color: $dark-text-color;
+		background-image: url($snow-background);
+		.icon { background-position: $snow-dark; }
+	}
+	&.mist {
+		background-image: url($mist-background);
+		.icon { background-position: $mist-light; }
+	}
+}
+.wrapper {
+	@include absolute-center;
+	height: 160px;
+	@media (min-width: 500px) {
+		height: 180px;
+	}
+	text-align: center;
+}
+.location {
+	display: inline-block;
+	font-size: 32px;
+	margin: 0 10px 0 0;
+	@media (min-width: 500px) {
+		font-size: 48px;
+		margin: 0 20px 0 0;
+	}
+}
+.temperature {
+	display: inline-block;
+	font-weight: 700;
+	font-size: 36px;
+	@media (min-width: 500px) {
+		font-size: 52px;
+	}
+	.deg {
+		font-weight: 400;
+	}
+	a {
+		display: inline-block;
+		font-weight: 400;
+		font-size: 22px;
+		line-height: 22px;
+		@media (min-width: 500px) {
+			font-size: 38px;
+			line-height: 38px;
+		}
+		padding: 2px 6px 2px 4px;
+		@include border_radius_default;
+		@include disable_text_selection;
+		&:hover {
+			cursor: default;
+			background-color: $mesurements-background-color;
+		}
+	}
+}
+.icon {
+	display: block;
+	width:80px;
+	height: 80px;
+	margin: 0px auto 0 auto;
+	padding: 0 0 0 0;
+	@include sprite_defaults;
+	background-position: $clear-day-light;
+}
+.no-data-warning {
+	display: none;
+	font-size: 11px;
+	margin: 0 0 0 0;
+	padding: 6px 4px 6px 4px;
+	background-color: $no-data-background-color;
 }
