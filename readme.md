@@ -4,6 +4,12 @@ The project is a simple weather display. (via OpenWeatherMap API)
 
 This was build to complete a [FreeCodeCamp challenge](http://www.freecodecamp.com/challenges/show-the-local-weather). You can use the code as you see fit, just don't use my personal name (scrub it out). See [license](./license.md).
 
+## Data
+
+Location data is being guessed via IP address using [ipinfo.io](http://ipinfo.io/)'s API.
+
+Weather data is provided by [OpenWeatherMap](http://openweathermap.org/api) via their API.
+
 ## Features
 
 - Different weather icons per types of weather.
