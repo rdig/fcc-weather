@@ -31,13 +31,7 @@ const changeTemp = function(currentTempInCelsius) {
 
 	$.getJSON('http://ipinfo.io', function(locData){
 
-		let city = locData.city;
-
-		if (!city) {
-			city = 'New York';
-		}
-
-		$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=44db6a862fba0b067b1930da0d769e98', function(wData) {
+		$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + locData.city + '&units=metric&appid=44db6a862fba0b067b1930da0d769e98', function(wData) {
 
 			console.log(wData);
 
@@ -138,7 +132,7 @@ const changeTemp = function(currentTempInCelsius) {
 					break;
 			}
 
-			hooks.location.html(city);
+			hooks.location.html(locData.city);
 
 			hooks.temperature.html(Math.round(wData.main.temp));
 
