@@ -13,7 +13,6 @@ const failedJsonRequest = function(message) {
 };
 
 const changeTemp = function(currentTempInCelsius) {
-	console.log('clicked');
 	if (hooks.temperature.hasClass('celsius')) {
 		hooks.temperature.removeClass('celsius');
 		hooks.temperature.addClass('farenheit');
@@ -32,8 +31,6 @@ const changeTemp = function(currentTempInCelsius) {
 	$.getJSON('http://ipinfo.io', function(locData){
 
 		$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + locData.city + '&units=metric&appid=44db6a862fba0b067b1930da0d769e98', function(wData) {
-
-			console.log(wData);
 
 			hooks.background.removeClass('clear-night');
 
