@@ -1,6 +1,6 @@
 Welcome!
 
-The project is a simple weather display. (via OpenWeatherMap API)
+This project is a simple web application the pulls in data from various API's to show the weather in your location.
 
 This was build to complete a [FreeCodeCamp challenge](http://www.freecodecamp.com/challenges/show-the-local-weather). You can use the code as you see fit, just don't use my personal name (scrub it out). See [license](./license.md).
 
