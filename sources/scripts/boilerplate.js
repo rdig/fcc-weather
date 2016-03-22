@@ -30,7 +30,7 @@ const changeTemp = function(currentTempInCelsius) {
 
 	$.getJSON('http://ipinfo.io', function(locData){
 
-		$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + locData.city + '&units=metric&appid=44db6a862fba0b067b1930da0d769e98', function(wData) {
+		$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + locData.city + '&units=metric&APPID=953c92289e7b106c4a8e31fa809cb7e7', function(wData) {
 
 			hooks.background.removeClass('clear-night');
 

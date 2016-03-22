@@ -10,6 +10,10 @@ Location data is being guessed via IP address using [ipinfo.io](http://ipinfo.io
 
 Weather data is provided by [OpenWeatherMap](http://openweathermap.org/api) via their API.
 
+## Adblock
+
+Apparently ipinfo's API service has begun being blocked by the major Adblockers, so if you get an API error, be sure to disable it for the session, otherwise the app won't work.
+
 ## Features
 
 - Different weather icons per types of weather.
